@@ -8,6 +8,8 @@ class Game():
         self.alien_row = 0
         self.alien_col = 0
         self.alien_hp = 50
+
+        #Generamos posicion del depredador
         self.predator_row = random.randint(0,n-1)
         self.predator_col = random.randint(0,n-1)
         self.predator_hp = 50
@@ -16,9 +18,9 @@ class Game():
             new_row = DoubleLinkedList()
             for j in range(n):
                 if i != self.predator_row or j != self.predator_col:
-                    new_row.append('O')
+                    new_row.append('O') #Llenamos el tablero de espacios vacios
                 else:
-                    new_row.append("🤖")
+                    new_row.append("🤖") #Ponemos el emoji del depredador en la casilla asignada por el random
             self.matrix.append(new_row)
 
 
@@ -29,8 +31,8 @@ class Game():
             x = random.randint(0,n-1)
             y = random.randint(0,n-1)
             
-            row_node = self.matrix.get(x)
-            value_node = row_node.value.get(y)
+            row_node = self.matrix.get(x) #Accedemos a la fila 
+            value_node = row_node.value.get(y) #Accedemos al valor de la fila
 
             if value_node.value == 'O':
                 value_node.value = "-"
